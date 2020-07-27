@@ -27,6 +27,7 @@ class Pokemon {
   String name;
   String img;
   List<String> type;
+  String typeString;
   String height;
   String weight;
   String candy;
@@ -45,6 +46,7 @@ class Pokemon {
         this.name,
         this.img,
         this.type,
+        this.typeString,
         this.height,
         this.weight,
         this.candy,
@@ -63,6 +65,12 @@ class Pokemon {
     name = json['name'];
     img = json['img'];
     type = json['type'].cast<String>();
+    var typet = new StringBuffer();
+    for (var t in type) {
+      typet.write(t.toString());
+      typet.write(" ");
+    }
+    typeString = typet.toString();
     height = json['height'];
     weight = json['weight'];
     candy = json['candy'];
